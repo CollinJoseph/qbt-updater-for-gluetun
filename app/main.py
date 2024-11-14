@@ -17,7 +17,7 @@ def main():
             sep('gluetun')
 
             # Wait for gluetun
-            while not is_gluetun_ready(s):
+            while not (is_gluetun_ready(s, '/v1/openvpn/status') or is_gluetun_ready(s, '/v1/vpn/status')):
                 print('Waiting for gluetun...')
             print('Gluetun is running')
 
